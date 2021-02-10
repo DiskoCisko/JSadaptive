@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+
+    @media print {
+      #form { display: none;}
+      body {
+        visibility: hidden;
+           }
+   .pattorn {
+     visibility: visible;
+   }
+    }
+    @page {
+  size: auto;  /* auto is the initial value */
+  margin: 0mm; /* this affects the margin in the printer settings */
+}
+html {
+  background-color: #FFFFFF;
+  margin: 0px; /* this affects the margin on the HTML before sending to printer */
+}
+body {
+  border: solid 1px blue;
+  margin: 10mm 15mm 10mm 15mm; /* margin you want for the content */
+}
+  </style>
+</head>
+<body>
+  <div id="form">
+  <form class=""  action="index.html" method="post">
+    <input name="time" type="text" size="10" id="time" value="88">
+  </form>
+  <button type="button" name="button" id="go">GO</button>
+  <input type="button" value="Печать" onclick="print()"></input>
+  </div>
+  <div class="pattorn" style="margin: 2em;"> Имя пездюка: <span id="min"></span ></div>
+
+      <script>
+        let inputIn = document.getElementById('time');
+        let btn = document.getElementById('go');
+        let form = document.getElementById('form');
+        btn.onclick = function (){
+         let value =inputIn.value;
+         console.log(value)
+         document.getElementById("min").innerHTML = value;
+          form.className = 'none';
+      }
+      </script>
+</body>
+</html>
